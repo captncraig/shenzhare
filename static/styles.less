@@ -1,0 +1,125 @@
+@cell-size: 42;
+.layout{
+    width:@cell-size * 20;
+    height: @cell-size * 12;
+    background-color: darkgray;
+    margin:0 auto;
+    position: relative;
+}
+.trace{
+    position: absolute;
+    width: @cell-size;
+    height: @cell-size;
+    color: transparent;
+    text-align: center;
+    background-size:100%;
+}
+.trace_9{
+    background-image: url("/static/dat/trace_2_corner.png");
+    transform: rotate(90deg);
+}
+.trace_C{
+    background-image: url("/static/dat/trace_2_corner.png");
+    transform: rotate(180deg);
+}
+.trace_3{
+    background-image: url("/static/dat/trace_2_corner.png");
+}
+.trace_6{
+    background-image: url("/static/dat/trace_2_corner.png");
+    transform: rotate(-90deg);
+}
+.trace_A{
+    background-image: url("/static/dat/trace_2.png");
+    transform: rotate(90deg);
+}
+.trace_5{
+    background-image: url("/static/dat/trace_2.png");
+}
+.trace_F{
+    background-image: url("/static/dat/trace_4.png");
+}
+.trace_B{
+    background-image: url("/static/dat/trace_3.png");
+    transform: rotate(90deg);
+}
+.trace_D{
+    background-image: url("/static/dat/trace_3.png");
+    transform: rotate(180deg);
+}
+.trace_E{
+    background-image: url("/static/dat/trace_3.png");
+    transform: rotate(-90deg);
+}
+.trace_7{
+    background-image: url("/static/dat/trace_3.png");
+}
+.trace_1{
+    background-image: url("/static/dat/trace_1.png");
+}
+.trace_2{
+    background-image: url("/static/dat/trace_1.png");
+    transform: rotate(-90deg);
+}
+.trace_4{
+    background-image: url("/static/dat/trace_1.png");
+    transform: rotate(180deg);
+}
+.trace_8{
+    background-image: url("/static/dat/trace_1.png");
+    transform: rotate(90deg);
+}
+.chip{
+    position: absolute;
+    background-size:100% 100%;
+    pre{
+        font-size:8;
+        padding: 0;
+        line-height: 1;
+        border-radius: 0;
+        border: none;
+        width: @cell-size * 1.5;
+        background-color: transparent;
+        color: white;
+        overflow-y:hidden;
+        margin-left: 15px;
+        margin-top: 8px;
+    }
+}
+
+.chip_UC6{
+    height: @cell-size * 3;
+    width: @cell-size *3;
+    background-image: url("/static/dat/cpu_large_fields.png"),url("/static/dat/logic_large.png"),url("/static/dat/logic_large_x.png");
+    color: transparent;
+}
+.chip_UC4{
+    height: @cell-size * 2;
+    width: @cell-size *3;
+    background-image: url("/static/dat/cpu_small_fields.png"),url("/static/dat/cpu_small.png"),url("/static/dat/cpu_small_x.png");
+    color: transparent;
+}
+.chip_BRIDGE{
+    height: @cell-size * 3;
+    width: @cell-size *1;
+    background-image: url("/static/dat/bridge.png"),url("/static/dat/bridge_x.png");
+    color: transparent;
+}
+.chip_BANK{
+    height: @cell-size * 2;
+    width: @cell-size *3;
+    background-image: url("/static/dat/bank.png"),url("/static/dat/cpu_small_x.png");
+    color: transparent;
+}
+.chip_RAM{
+    height: @cell-size * 2;
+    width: @cell-size *3;
+    background-image: url("/static/dat/memory.png"),url("/static/dat/cpu_small_x.png");
+    color: transparent;
+}
+.chip_RND{
+    height: @cell-size * 2;
+    width: @cell-size *2;
+    background-image: url("/static/dat/random.png"),url("/static/dat/logic_medium_x.png");
+    color: transparent;
+}
