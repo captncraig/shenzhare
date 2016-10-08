@@ -1,0 +1,7 @@
+<h3>{{save.name}}</h3>
+<div class='layout'>
+    <div class='trace' ng-repeat="seg in save.segments" ng-style="trace_styles(seg)" ng-class="trace_class(seg)"></div>
+    <div class='chip' ng-repeat="chip in save.chips" ng-style="chip_styles(chip)" ng-class="'chip_'+chip.type">
+        <pre ng-if="chip.code">{{chip.code}}</pre>{{chip.type}}
+    </div>
+</div>

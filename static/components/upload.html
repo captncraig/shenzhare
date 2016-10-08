@@ -1,0 +1,20 @@
+<div class='row'>
+    <div class='col-md-6'>
+        <h3>Enter your save data:
+            <span uib-popover-html="fileHelp" popover-class='pop' popover-trigger="'mouseenter'" class="glyphicon glyphicon-question-sign"
+                aria-hidden="true" popover-placement="bottom" style='font-size:70%'>
+                            </span>
+        </h3>
+        <textarea class="form-control" rows="25" ng-model='text' style="resize: none;"></textarea>
+    </div>
+    <!-- possibly temporary -->
+    <div class='col-md-6'>
+        <h3>Or use one of mine:</h3>
+        <ul>
+            <li ng-repeat="(key, value) in defaultSaves"><a ng-click='loadBuiltIn(value)'>{{key}}</a></li>
+            <ul>
+    </div>
+</div>
+<div class='row'>
+    <div class='col-md-1'><button class='btn btn-primary' ng-click='load()'>Load</button></div>
+</div>
