@@ -1,9 +1,9 @@
 var app = angular.module('myApp', []);
 
 var testData = `[name] New design 1
-[puzzle] Sz017
-[production-cost] 1200
-[power-usage] 232
+[puzzle] Sz001
+[production-cost] 1100
+[power-usage] 201
 
 [traces] 
 ......................
@@ -11,83 +11,54 @@ var testData = `[name] New design 1
 ......................
 ......................
 ......................
-.....14......14.......
-.....1554.15414.......
-..94..954.1C.14.......
-..355CA....3414.......
-....16A......14.......
-....156......14.......
-......................
+.........155C.........
+............A.........
+......94....A.........
+......35555CA.........
+.......1C..AA94.......
+....94..A..AAA........
+....354.2..222........
 ......................
 ......................
 
 [chip] 
-[type] ORACLE
-[x] 2
+[type] UC4
+[x] 5
 [y] 3
-[is-puzzle-provided] true
+[code] 
+  mov 0 p1
+  mov 100 p0
+  slp 1
+  mov 100 p1
+  mov 0 p0
+  slp 1
 
 [chip] 
-[type] DX3
-[x] 12
-[y] 3
-
-[chip] 
-[type] LCDH
+[type] UC4
 [x] 14
-[y] 3
-[is-puzzle-provided] true
+[y] 4
+[code] 
+  slp 7
+  mov 100 p0
+  slp 2
+  mov 0 p0
+  slp 1
 
 [chip] 
 [type] UC6
-[x] 3
+[x] 7
 [y] 6
 [code] 
-a:teq p0 0
-+ slp 1
-+ jmp a
-  mov 0 acc  
-  teq p1 0
-- add 1
+  mov 100 p0
+  slp 6
+  mov 100 p1
+  mov 0 p0
   slp 1
-  teq p1 0
-- add 10
+  mov 0 p1
+  slp 2
+  mov 100 p1
   slp 1
-  teq p1 0
-- add 100
-  mov acc x3
-  slp 3
-
-[chip] 
-[type] BRIDGE
-[x] 6
-[y] 6
-
-[chip] 
-[type] UC6
-[x] 8
-[y] 6
-[code] 
-  slx x1
-  mov x1 dat
-  slp 1
-  mov 0 acc
-  teq p0 0
-- add 1
-  slp 1
-  teq p0 0
-- add 10
-  slp 1
-  teq p0 0
-- add 100
-  mov dat x2
-  mov acc x3
-
-[chip] 
-[type] DX3
-[x] 12
-[y] 6
-
+  mov 0 p1
 `
 
 app.controller('myController',function ($scope) {
