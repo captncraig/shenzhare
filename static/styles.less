@@ -1,4 +1,7 @@
 @cell-size: 42;
+.pop{
+    max-width: 600px;
+}
 .layout{
     width:@cell-size * 20;
     height: @cell-size * 12;
@@ -78,7 +81,7 @@
         line-height: 1;
         border-radius: 0;
         border: none;
-        width: @cell-size * 1.5;
+        width: @cell-size * 1.7;
         background-color: transparent;
         color: white;
         overflow-y:hidden;
@@ -94,6 +97,12 @@
     color: transparent;
 }
 .chip_UC4{
+    height: @cell-size * 2;
+    width: @cell-size *3;
+    background-image: url("/static/dat/cpu_small_fields.png"),url("/static/dat/cpu_small.png"),url("/static/dat/cpu_small_x.png");
+    color: transparent;
+}
+.chip_UC4X{
     height: @cell-size * 2;
     width: @cell-size *3;
     background-image: url("/static/dat/cpu_small_fields.png"),url("/static/dat/cpu_small.png"),url("/static/dat/cpu_small_x.png");

@@ -1,74 +1,29 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.bootstrap']);
 
-var testData = `[name] New design 1
-[puzzle] Sz001
-[production-cost] 1100
-[power-usage] 201
+app.controller('myController',function ($scope,$sce) {
 
-[traces] 
-......................
-......................
-......................
-......................
-......................
-.........155C.........
-............A.........
-......94....A.........
-......35555CA.........
-.......1C..AA94.......
-....94..A..AAA........
-....354.2..222........
-......................
-......................
+        $scope.save = null;
+        $scope.screen = "upload";
+        $scope.saveText = "";
+        $scope.defaultSaves = window.builtInSaves
 
-[chip] 
-[type] UC4
-[x] 5
-[y] 3
-[code] 
-  mov 0 p1
-  mov 100 p0
-  slp 1
-  mov 100 p1
-  mov 0 p0
-  slp 1
+        $scope.load = function(){
+          console.log("AAAAA")
+          $scope.save = parseSave($scope.saveText);
+          $scope.screen = "schematic";
+        }
 
-[chip] 
-[type] UC4
-[x] 14
-[y] 4
-[code] 
-  slp 7
-  mov 100 p0
-  slp 2
-  mov 0 p0
-  slp 1
+        $scope.fileLocations =  $sce.trustAsHtml(`Saves can usually be found in the following locations:
+          <ul>
+          <li><b>Windows:</b> <pre>C:\\Users\\&lt;you&gt\\Documents\\My Games\\SHENZEN IO\\&lt;steam id&gt;</pre></li>
+          <li><b>OSX:</b> <pre>~/Library/Application Support/SHENZHEN IO/&lt;steam id&gt;</pre></li>
+          <li><b>Linux:</b> <pre>~/.local/share/SHENZHEN IO/&lt;steam id&gt;</pre></li>
+          </ul>`)
 
-[chip] 
-[type] UC6
-[x] 7
-[y] 6
-[code] 
-  mov 100 p0
-  slp 6
-  mov 100 p1
-  mov 0 p0
-  slp 1
-  mov 0 p1
-  slp 2
-  mov 100 p1
-  slp 1
-  mov 0 p1
-`
-
-app.controller('myController',function ($scope) {
-        $scope.save = parseSave(testData);
-        console.log($scope.save);
         $scope.trace_styles = function(cell){
             var b1 = "1px solid gray";
             var b2 = "2px solid gray";
             return {
-                //"background-color":(cell.x + cell.y) %2 == 0 ? "blue":"red",
                 "left":cell.x * 42,
                 "top":cell.y *42,
                 "border-left": cell.x == 0 ? b2 : b1,
@@ -77,6 +32,7 @@ app.controller('myController',function ($scope) {
                 "border-bottom":cell.y == 11 ? b2 : b1,
             }
         }
+
         $scope.chip_styles = function(cell){
             return {
                 "left": (cell.x * 42)-42,

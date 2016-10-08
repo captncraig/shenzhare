@@ -1,26 +1,55 @@
 <head>
     <script src="/static/bower/jquery/dist/jquery.js"></script>
     <script src="/static/bower/angular/angular.js"></script>
-   
+    <script src="/static/bower/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
     <link rel="stylesheet" href="/static/bower/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
     <script src="/static/bower/less/dist/less.js"></script>
+
     <script src="/static/parser.js"></script>
+    <script src="/static/builtins.js"></script>
     <script src="/static/app.js"></script>
- 
+
 </head>
 
 <body ng-app="myApp" ng-controller="myController">
-    <div ng-show="save">
+
+    <div ng-show="screen === 'upload'">
         <div class='container'>
-        <h3>{{save.name}}</h3>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <h3>Enter your save data:
+                        <span uib-popover-html="fileLocations" popover-class='pop' popover-trigger="'mouseenter'" class="glyphicon glyphicon-question-sign" aria-hidden="true"
+                            popover-placement="bottom" style='font-size:70%'>
+                            </span>
+                    </h3>
+                    <textarea class="form-control" rows="25" ng-model='saveText'></textarea>
+                </div>
+                <div class='col-md-6'>
+                    <h3>Or use one of mine:</h3>
+                    <ul>
+                    <li ng-repeat="(key, value) in defaultSaves"><a ng-click='$parent.saveText = value'>{{key}}</a></li>
+                    <ul>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-1'><button class='btn btn-primary' ng-click='load()'>Load</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="screen === 'schematic'">
+        <div class='container'>
+            <h3>{{save.name}}</h3>
         </div>
         <div class='layout'>
             <div class='trace' ng-repeat="seg in save.segments" ng-style="trace_styles(seg)" ng-class="trace_class(seg)"></div>
             <div class='chip' ng-repeat="chip in save.chips" ng-style="chip_styles(chip)" ng-class="'chip_'+chip.type">
                 <pre ng-if="chip.code">{{chip.code}}</pre>{{chip.type}}
             </div>
-            </div>
         </div>
     </div>
+    </div>
+
 </body>
