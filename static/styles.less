@@ -1,5 +1,23 @@
 @cell-size: 42;
-body { padding-bottom: 70px; }
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.35);
+  font-size:10px;
+  line-height:60px;
+}
 .pop{
     max-width: 600px;
 }
@@ -7,7 +25,6 @@ body { padding-bottom: 70px; }
     width:@cell-size * 20;
     height: @cell-size * 12;
     background-color: darkgray;
-    margin:0 auto;
     position: relative;
 }
 .trace{

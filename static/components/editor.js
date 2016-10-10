@@ -16,6 +16,6 @@ function EditController($scope, editorData, $location) {
 app.component('editor', {
   template: tpl,
   controller: EditController,
-});
+}); 
     
 }());
